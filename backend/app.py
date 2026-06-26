@@ -1,3 +1,4 @@
+```python
 from flask import Flask, request, jsonify
 import numpy as np
 import pickle
@@ -5,19 +6,29 @@ import os
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app, origins=["http://localhost:5173"])
+CORS(app)
 
 # Get the directory where app.py is located
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-# Full path to the model file
+# Full path to model
 MODEL_PATH = os.path.join(BASE_DIR, "heart-disease-prediction-knn-model.pkl")
 
-# Load model
+# Load the trained model
 with open(MODEL_PATH, "rb") as f:
     model = pickle.load(f)
 
 
+# Home Route
+@app.route("/")
+def home():
+    return jsonify({
+        "status": "success",
+        "message": "Heart Disease Prediction API is running successfully!"
+    })
+
+
+# Prediction Route
 @app.route("/submit", methods=["POST"])
 def predict():
     try:
@@ -58,4 +69,4 @@ def predict():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=True)
