@@ -3,7 +3,7 @@ import { Header } from './components/header'
 import { UserInteraction } from './pages/userinteraction'
 import TestApp from './test'
 import { Home } from './pages/Home'
-import { About } from './pages/about1'
+import { About } from './pages/About'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Footer } from './components/footer'
 import { Result } from './pages/result'
