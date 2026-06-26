@@ -7,20 +7,23 @@ import { About } from './pages/About'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Footer } from './components/footer'
 import { Result } from './pages/result'
-function App() {
 
+function App() {
   return (
-    <Router>
+    <BrowserRouter>
       <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/medicos" element={<TestApp />} />
-          <Route path="/predictionform" element={<UserInteraction />} />
-          <Route path="/result" element={<Result />} />
-        </Routes>
-    </Router>
-  )
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/medicos" element={<TestApp />} />
+        <Route path="/predictionform" element={<UserInteraction />} />
+        <Route path="/result" element={<Result />} />
+      </Routes>
+
+      <Footer />
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;

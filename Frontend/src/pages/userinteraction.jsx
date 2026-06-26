@@ -49,14 +49,14 @@ export const UserInteraction = ()=>{
       // }
       try {
         const reponse = await axios.post(
-          'http://localhost:5000/submit', 
-          data,
-          {
-            headers: {
-          'Content-Type': 'application/json',
-        },
-      //  body: JSON.stringify(data),
-      });
+  "https://heart-diseases-cuwr.onrender.com/submit",
+  data,
+  {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  }
+);
         setPridiction(reponse.data.prediction[0]);
         console.log(reponse.data.prediction[0])
         console.log(data);
